@@ -39,28 +39,28 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FilePickerModule } from  '../assets/file-picker/src/public_api';
 //COMPONENTS
 import { TestappComponent } from './components/testapp/testapp.component';
-import { FruitfooterComponent } from './components/fruitfooter/fruitfooter.component';
-import { FruitcestaComponent } from './components/fruitcesta/fruitcesta.component';
-import { FruitbannerComponent } from './components/fruitbanner/fruitbanner.component';
+//import { FruitfooterComponent } from './components/fruitfooter/fruitfooter.component';
+////port { FruitcestaComponent } from './components/fruitcesta/fruitcesta.component';
+//import { FruitbannerComponent } from './components/fruitbanner/fruitbanner.component';
 // import { FruitbannerboxComponent } from './components/fruitbannerbox/fruitbannerbox.component';
-import { FruitproductsComponent } from './components/fruitproducts/fruitproducts.component';
-import { FruittopbarComponent } from './components/fruittopbar/fruittopbar.component';
+//import { FruitproductsComponent } from './components/fruitproducts/fruitproducts.component';
+//import { FruittopbarComponent } from './components/fruittopbar/fruittopbar.component';
 import { Component, Inject} from '@angular/core';
-import { FruitcartComponent } from './components/fruitcart/fruitcart.component';
-import { PagoComponent } from './components/pago/pago.component';
+//import { FruitcartComponent } from './components/fruitcart/fruitcart.component';
+//import { PagoComponent } from './components/pago/pago.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestappComponent,
-    FruitfooterComponent,
-    FruitcestaComponent,
-    FruitbannerComponent,
+    //FruitfooterComponent,
+    //FruitcestaComponent,
+    //FruitbannerComponent,
     // FruitbannerboxComponent,
-    FruitproductsComponent,
-    FruittopbarComponent,
-    FruitcartComponent,
-    PagoComponent,
+    //FruitproductsComponent,
+    //FruittopbarComponent,
+    //FruitcartComponent,
+   // PagoComponent,
   ],
   imports: [
     BrowserModule,

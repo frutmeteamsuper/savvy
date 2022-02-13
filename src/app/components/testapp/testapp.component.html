@@ -1,0 +1,145 @@
+
+	<div class="">
+		<div class="all-product-grid">
+			<div class="container">	
+				<div class="product-list-view">
+					<div class="row">
+						
+						<div class="col-lg-3 col-md-6 col-xs-6" *ngFor="let tix of tixs;let i = index" [hidden]="tix.categorySuper!=this._uw.categorySelected && !this._uw.showAll" >
+
+							
+							<div class="product-item mb-30 product-h" [hidden]="tix.oncart ">
+								<a class="product-img">
+									<img src="{{tix.images[0]}}" alt="">
+									<div class="product-absolute-options">
+										<span class="offer-badge-2" [hidden]="!tix.initload" style="color: black;background-color: yellow;">Oferta</span>
+									
+									</div>
+								</a>
+								<div class="product-text-dt" *ngIf="this._uw.info[0]" style="padding-top:5px;" >
+									<h4>{{tix.productName}}</h4>
+									<!-- <p>Disponible<span>(14 Kg En Stock)</span></p> -->
+									<div class="product-price" [hidden]="this._uw.currency==this._uw.info[0].bs"><span  style="color:#000; text-transform: none !important; font-weight: normal; text-decoration: none; font-size: 12px; ">$USD </span>{{tix.globalPrice*this._uw.currency |  number:'1.0-2' }}
+									</div>
+									<div class="product-price"  [hidden]="this._uw.currency==this._uw.info[0].usd "><span  style="color:#000; text-transform: none !important; font-weight: normal; text-decoration: none; font-size: 12px; ">BsS.</span> {{tix.globalPrice*this._uw.currency |  number:'1.2-2' }}
+									</div>
+									<div>
+										
+									<span class="offer-badge-1" [hidden]="tix.stockStatus">Agotado</span> 
+									</div>
+									 
+									<div class="qty-cart" [hidden]="!tix.stockStatus">
+										<div class="quantity buttons_added">
+											<input type="button" value="-" class="minus minus-btn" (click)=minus(i)>
+											<!-- <input type="number" step="1" name="quantity" value="1" class="input-text qty text"> -->
+
+											<span class="qty text"  style="color:#000; text-transform: none !important; font-weight: bold; text-decoration: none; padding-left:4px;" [hidden]="tix.quantity>0">{{tix.quantity}} 
+											</span> 
+
+											<span class="qty text"  style="color:#f55d2c; font-size: 16px; text-transform: none !important; font-weight: bold; text-decoration: none; padding-left:4px;"  [hidden]="tix.quantity<1">{{tix.quantity}} </span>  
+
+											<span style="padding-right:4px;" [hidden]="tix.quantity>0">		({{tix.presentacion}})
+											</span>
+
+											<span style="padding-right:4px;" style="color:#f55d2c;" [hidden]="tix.quantity<1">		({{tix.presentacion}})
+											</span>
+
+											<input type="button" value="+" class="plus plus-btn" (click)=plus(i)>
+										</div>
+
+										<div [hidden]="tix.quantity<1" style="margin-left: auto;">					
+											<img src="assets/assetssuper/images/oncart.svg" alt="SavvyLatinos" style="height: 50px;width: 50px;cursor: pointer;"[hidden]="!tix.oncart" (click)="outcart(i)"
+											>
+											<img src="assets/assetssuper/images/outcart.svg" alt="SavvyLatinos" style="height: 50px;width: 50px;cursor: pointer;"[hidden]="tix.oncart" (click)="oncart(i)"
+											>
+										</div>
+
+
+										<!-- <span class="cart-icon" [hidden]="tix.quantity<1"><i class="uil uil-shopping-cart-alt"></i></span> -->
+									</div>
+								</div>
+							</div>
+							<div class="product-item mb-30"  [hidden]="!tix.oncart " style=" box-shadow: 0 15px 15px rgba(0, 0, 0, 0.15);  transform: translateY(-5px);"	>
+
+								<!-- 	<div class="product-item mb-30"  [hidden]="!tix.oncart " style="box-shadow:4px 6px 21px 9px #07d76514"	> -->
+
+								
+								   
+
+								<a class="product-img">
+									<img src="{{tix.images[0]}}" alt="">
+									<div class="product-absolute-options">
+										<span class="offer-badge-2" [hidden]="!tix.initload" style="color: black;background-color: yellow;">Oferta</span>
+									
+									</div>
+									
+								</a>
+								<div class="product-text-dt" *ngIf="this._uw.info[0]" style="padding-top:5px;"  >
+									<h4>{{tix.productName}}</h4>
+
+									<!-- <p>Disponible<span>(14 Kg En Stock)</span></p> -->
+									<div class="product-price" [hidden]="this._uw.currency==this._uw.info[0].bs"><span  style="color:#000; text-transform: none !important; font-weight: normal; text-decoration: none; font-size: 12px; ">$USD </span>{{tix.globalPrice*this._uw.currency |  number:'1.0-2' }}
+									</div>
+									<div class="product-price"  [hidden]="this._uw.currency==this._uw.info[0].usd "><span  style="color:#000; text-transform: none !important; font-weight: normal; text-decoration: none; font-size: 12px; ">BsS.</span> {{tix.globalPrice*this._uw.currency |  number:'1.2-2' }}
+									</div>
+									<div>
+										
+									<span class="offer-badge-1" [hidden]="tix.stockStatus">Agotado</span> 
+									</div>
+									<div class="qty-cart" [hidden]="!tix.stockStatus">
+										<div class="quantity buttons_added">
+											<input type="button" value="-" class="minus minus-btn" (click)=minus(i)>
+											<!-- <input type="number" step="1" name="quantity" value="1" class="input-text qty text"> -->
+
+											<span class="qty text"  style="color:#000; text-transform: none !important; font-weight: bold; text-decoration: none; padding-left:4px;" [hidden]="tix.quantity>0">{{tix.quantity}} 
+											</span> 
+
+											<span class="qty text"  style="color:#f55d2c; font-size: 16px; text-transform: none !important; font-weight: bold; text-decoration: none; padding-left:4px;"  [hidden]="tix.quantity<1">{{tix.quantity}} </span>  
+
+											<span style="padding-right:4px;" [hidden]="tix.quantity>0">		({{tix.presentacion}})
+											</span>
+
+											<span style="padding-right:4px;" style="color:#f55d2c;" [hidden]="tix.quantity<1">		({{tix.presentacion}})
+											</span>
+
+											<input type="button" value="+" class="plus plus-btn" (click)=plus(i)>
+										</div>
+
+										<div [hidden]="tix.quantity<1" style="margin-left: auto;">					
+										<!-- 	<img src="assets/assetssuper/images/outcart.svg" alt="SavvyLatinos" title="Sacar del carrito" style="height: 50px;width: 50px;cursor: pointer;"[hidden]="tix.oncart" (click)="oncart(i)"
+											> -->
+											<img src="assets/assetssuper/images/oncart.svg" alt="SavvyLatinos"  title="Sacar del carrito" style="height: 50px;width: 50px;cursor: pointer; position:absolute; top:0; right:9px;"[hidden]="!tix.oncart" (click)="outcart(i)"
+											>
+										</div>
+
+
+										<!-- <span class="cart-icon" [hidden]="tix.quantity<1"><i class="uil uil-shopping-cart-alt"></i></span> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+			
+						<div class="col-md-12" [hidden]="this._uw.showAll || this._uw.allLoaded">
+							<div class="more-product-btn">
+								<button class="show-more-btn hover-btn" (click)="loadmore()">Mostrar Más</button>
+							</div>
+						</div>
+						<div class="col-md-12" [hidden]="!this._uw.allLoaded">
+							<div class="more-product-btn">
+								<button class="show-more-btn hover-btn" (click)="showAll()">Mostrar Todos</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Body End -->
+
+<a href="index.html#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
+
+<a tw-mt-30 href="https://wa.me/584140070255?text=Hola,%20deseo%20realizar%20un%20pedido" class="whatsapp" target="_blank" title="ContÃ¡ctanos por whatsapp !" style="color: white;"> 
+         <i class="ion-social-whatsapp" style="color:#25d366;"></i>
+         </a>

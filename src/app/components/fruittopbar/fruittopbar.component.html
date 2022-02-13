@@ -1,0 +1,508 @@
+    <!-- Category Model Start-->
+  <div id="category_model" class="header-cate-model main-gambo-model modal fade" tabindex="-1" role="dialog" aria-modal="false" style="max-width: 100%;">
+        <div class="modal-dialog category-area" role="document">
+            <div class="category-area-inner">
+                <div class="modal-header">
+                    <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close" style="color: #000 !important;">
+            <i class="uil uil-multiply"></i>
+                    </button>
+                </div>
+                <div class="category-model-content modal-content"> 
+                  <div class="cate-header" style="background-color:  #fff; color: #000;">
+                    <h4>Categorías</h4>
+                  </div>
+                  <ul class="category-by-cat">
+                    <li (click)="filter('hortalizas')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon ">
+                          <img src="assets/assetssuper/images/category/icon-1.svg" alt="SavvyLatinos" >
+                     
+
+                        </div>
+                        <div class="text" style="color:#f55d2c;" [hidden]="this._uw.categorySelected!='hortalizas'"> Frutas y Hortalizas </div>
+                        <div class="text" [hidden]="this._uw.categorySelected=='hortalizas'"> Frutas y Hortalizas </div>
+                      </a>
+                    </li>
+                     <li (click)="filter('carnes')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-10.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text" style="color:#f55d2c;" [hidden]="this._uw.categorySelected!='carnes'"> Carnes y Embutidos </div>
+                          <div class="text" [hidden]="this._uw.categorySelected=='carnes'"> Carnes y Embutidos </div>
+                      </a>
+                    </li>
+                    <li>
+                    <li (click)="filter('viveres')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-2.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text" style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='viveres'"> Víveres </div>
+                         <div class="text" [hidden]="this._uw.categorySelected=='viveres'"> Víveres </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('lacteos')"> 
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-7.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text" style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='lacteos'"> Huevos y lácteos </div>
+                         <div class="text" [hidden]="this._uw.categorySelected=='lacteos'"> Huevos y lácteos </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('bebidas')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-3.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text"style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='bebidas'"> Bebidas y licores </div>
+                         <div class="text"[hidden]="this._uw.categorySelected=='bebidas'">Bebidas y licores </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('postres')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-5.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text"style="color:#f55d2c;" [hidden]="this._uw.categorySelected!='postres'"> Postres </div>
+                        <div class="text" [hidden]="this._uw.categorySelected=='postres'"> Postres </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('limpieza')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-6.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text" style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='limpieza'"> Hogar y limpieza </div>
+                        <div class="text" [hidden]="this._uw.categorySelected=='limpieza'"> Hogar y limpieza </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('panaderia')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-11.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text" style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='panaderia'"> Panadería </div>
+                         <div class="text" [hidden]="this._uw.categorySelected=='panaderia'"> Panadería </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('aseopersonal')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-8.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text" style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='aseopersonal'"> Cuidado Personal </div>
+                          <div class="text" [hidden]="this._uw.categorySelected=='aseopersonal'"> Cuidado Personal </div>
+                      </a>
+                    </li>
+                    <li (click)="filter('mascotas')">
+                      <a  class="single-cat-item bs-canvas-close" data-dismiss="modal">
+                        <div class="icon">
+                          <img src="assets/assetssuper/images/category/icon-9.svg" alt="SavvyLatinos">
+                        </div>
+                        <div class="text"style="color:#f55d2c;"[hidden]="this._uw.categorySelected!='mascotas'"> Mascotas </div>
+                         <div class="text"[hidden]="this._uw.categorySelected=='mascotas'"> Mascotas </div>
+                      </a>
+                    </li>
+                  </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- Category Model End-->
+
+    <!-- Currency Model Start-->
+  <div id="currency_model" class="header-cate-model main-gambo-model modal fade" tabindex="-1" role="dialog" aria-modal="false">
+        <div class="modal-dialog currency-area" role="document">
+            <div class="currency-area-inner">
+                <div class="modal-header">
+                    <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close" style="color: #000 !important; ">
+                     <i class="uil uil-multiply"></i>
+                    </button>
+                </div>
+                <div class="currency-model-content modal-content"> 
+                    <div class="cate-header" style="background-color:  #fff; color: #000;">
+                      <h4>Seleccione divisa</h4>
+                    </div>
+                    <ul class="currency-by-cat">
+                      <li >
+                        <a class="single-cat-item bs-canvas-close" data-dismiss="modal" (click)=setBs()>
+                          <div class="icon">
+                            <img src="assets/assetssuper/images/category/vef.svg" alt="SavvyLatinos">
+                          </div>
+                          <div class="text"> Bolivares Soberanos </div>
+                        </a>
+                      </li>
+         
+                      <li >
+                        <a  class="single-cat-item bs-canvas-close" data-dismiss="modal" (click)=setUsd()>
+                          <div class="icon">
+                            <img src="assets/assetssuper/images/category/usd.svg" alt="SavvyLatinos">
+                          </div>
+                          <div class="text"> Dolar Estadounidense </div>
+                        </a>
+                      </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- Category Model End-->
+
+ 
+  <!-- Cart Sidebar Offset Start-->
+  <div class="bs-canvas bs-canvas-left position-fixed bg-cart h-100">
+    <form [formGroup]="ngFormSendOrder" (ngSubmit) ="okOrder()" >
+      <div class="bs-canvas-header side-cart-header p-3 ">
+       
+        <button type="button" class="bs-canvas-close close" aria-label="Close" [hidden]="_uw.feet!=0"><i class="uil uil-multiply"></i></button>
+         <button type="button" class="bs-canvas-close close" aria-label="Close"  [hidden]="_uw.feet==0"><i class="uil uil-multiply"></i></button>
+
+          <div class="  main-cart-title" [hidden]="_uw.feet==0">
+          Delivery ...<span></span>
+        </div>
+
+        <div class="  main-cart-title" [hidden]="_uw.feet!=0">Tu pedido ...
+         <!-- <span>({{_uw.numProd}}  productos)</span> -->
+        </div>
+
+      </div> 
+
+      <div class="bs-canvas-body" [hidden]="_uw.feet!=0">   
+        <div class="side-cart-items">
+          <div class="cart-item bs-canvas-close" data-dismiss="modal"  *ngFor="let tix of _uw.car;let i = index">
+            <div class="cart-product-img">
+              <img src="{{tix.images[0]}}" alt="">
+            </div>
+            <div class="cart-text">            
+              <h4 >{{tix.productName}}</h4>
+              <h4 [hidden]="this._uw.currency==this._uw.info[0].bs">{{tix.quantity}}({{tix.presentacion}}) x {{tix.globalPrice*this._uw.currency |  number:'1.0-2' }}</h4>
+                <h4 [hidden]="this._uw.currency==this._uw.info[0].usd ">{{tix.quantity}}({{tix.presentacion}}) x {{tix.globalPrice*this._uw.currency |  number:'1.2-2' }}</h4>
+              <div style="margin-top: 10px; margin-right: 1px; text-align:right;">
+                <div >
+                  <span style="color:#005e58;">Subtotal = </span>
+                 <span class="cart-item-price" [hidden]="this._uw.currency==this._uw.info[0].bs">{{tix.globalPrice*tix.quantity*this._uw.currency |  number:'1.0-2'}}
+                 </span>
+                 <span class="cart-item-price" [hidden]="this._uw.currency==this._uw.info[0].usd ">{{tix.globalPrice*tix.quantity*this._uw.currency |  number:'1.2-2'}}
+                 </span>
+               </div>
+              </div>
+            </div>
+          </div>        
+        </div>
+      </div>
+
+      <div class="bs-canvas-body" [hidden]="_uw.feet==0">
+    
+        <div class="add-address-form">
+
+          <div class=" " style="margin-top: 40%; text-align: center;"  [hidden]="!this.email || _uw.feet!=1">
+            <img src="assets/assetssuper/images/checkout/1.svg" style="width: 75px; margin-bottom:15px;">
+            <div></div>
+            <label class="control-label" style="font-size: 20px;">Ingresa tu email</label>
+    
+
+            <div class="form-group pos_rel">
+                      <input  id="email" name="emailaddress" type="email"placeholder="Email" [(ngModel)]="order.email" class="form-control lgn_input" formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && fval.email.errors }"
+              required>
+                      <i class="uil uil-envelope lgn_icon"></i>
+              <span class="required"></span>
+              <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                  <div *ngIf="fval.email.errors.required" class="errorLabel">
+                  * Una dirección de correo electrónico para comunicarnos.
+                  </div>
+              </div>
+            </div>
+
+         
+
+             
+          </div>
+
+          <div class="form-group" [hidden]="!this.data || _uw.feet!=2" style="text-align: center;" >
+             <img src="assets/assetssuper/images/checkout/2.svg" style="width: 75px; margin-bottom:15px;">
+             <label class="control-label"style="font-size: 18px;" >Nombre de la persona que recibe tu pedido </label>
+
+             <div class="form-group pos_rel">
+                      <input  id="personaContacto"  type="text"placeholder="Nombre" [(ngModel)]="order.personaContacto" class="form-control lgn_input" formControlName="personaContacto"
+              [ngClass]="{ 'is-invalid': submitted && fval.personaContacto.errors }"
+              required>
+                      <i class="uil uil-user-circle lgn_icon"></i>
+              <span class="required"></span>
+               <div *ngIf="submitted && fval.personaContacto.errors" class="invalid-feedback">
+                  <div *ngIf="fval.personaContacto.errors.required" class="errorLabel">
+                  * Nombre de la persona que recibe.
+                  </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+          <div class="form-group " [hidden]="!this.data || _uw.feet!=2" style="text-align: center;" >
+            <label class="control-label" style="font-size: 18px;" >Su numero telefónico</label>
+             
+                <div class="form-group pos_rel">
+                      <input  id="telefono"  type="tel"placeholder="Teléfono de contacto" [(ngModel)]="order.telefono" class="form-control lgn_input" formControlName="telefono"
+              [ngClass]="{ 'is-invalid': submitted && fval.telefono.errors }"
+              required>
+                      <i class="uil uil-mobile-android-alt lgn_icon"></i>
+              <span class="required"></span>
+               <div *ngIf="submitted && fval.telefono.errors" class="invalid-feedback">
+                  <div *ngIf="fval.personaContacto.errors.required" class="errorLabel">
+                  * Un número de teléfono de la persona que recibe.
+                  </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="form-group " [hidden]="!this.data || _uw.feet!=2" style="text-align: center;" >
+            <label class="control-label"style="font-size: 18px;" >Lugar de entrega</label>
+              <textarea class="form-control height-80" id="direccion" formControlName="direccion" placeholder="Dirección (Urbanización, # de casa y punto de referencia)" [(ngModel)]="order.direccion"
+              [ngClass]="{ 'is-invalid': submitted && fval.direccion.errors }"
+              required></textarea>
+              <span class="required"></span>
+              <div *ngIf="submitted && fval.direccion.errors" class="invalid-feedback">
+                  <div *ngIf="fval.direccion.errors.required" class="errorLabel">
+                  * Dirección donde deseas que llevemos tu pedido.
+                  </div>
+              </div>
+          </div>
+
+
+
+          <div class="form-group" [hidden]="!this.method || _uw.feet!=3"  style="text-align: center;" >
+               <img src="assets/assetssuper/images/checkout/3.svg" style="width: 75px; margin-bottom:15px;">
+            <div class="product-sort" style="float: initial !important;">
+              <div class="ui selection dropdown vchrt-dropdown">
+                <input name="gender" type="hidden" value="default">
+                <i class="dropdown icon d-icon"></i>
+                 <label class="control-label"style="font-size: 18px;" [hidden]="_uw.method" >Que -</label>
+                <div class="text"> Método de pago</div>
+                <div class="menu">  
+                  <div class="item" data-value="0" (click)="setMethod('usdt')">USDT (Criptomonedas)</div>
+                  <div class="item" data-value="0" (click)="setMethod('zelle')">USD Zelle</div>
+                  <div class="item" data-value="1" (click)="setMethod('paypal')">USD PayPal</div>
+                  <div class="item" data-value="2" (click)="setMethod('efectivo')">USD Efectivo</div>
+                  <div class="item" data-value="3" (click)="setMethod('pagomovil')">BsS Pago móvil</div>
+                  <div class="item" data-value="4" (click)="setMethod('bstransferencia')">BsS Transferencia</div>
+                </div>
+                <label class="control-label"style="font-size: 18px;" [hidden]="_uw.method">- deseas usar ?  </label>
+              </div>
+            </div>
+             <div *ngIf="submitted && fval.email.errors" class="invalid-feedback" style="display: flex;">
+                  <div *ngIf="fval.email.errors.required" class="errorLabel">
+                  * Una dirección de correo electrónico para comunicarnos.
+                  </div>
+              </div>
+              <div *ngIf="submitted && fval.personaContacto.errors" class="invalid-feedback" style="display: flex;">
+                  <div *ngIf="fval.personaContacto.errors.required" class="errorLabel">
+                  * Nombre de la persona que recibe.
+                  </div>
+              </div>
+              <div *ngIf="submitted && fval.telefono.errors" class="invalid-feedback" style="display: flex;">
+                  <div *ngIf="fval.telefono.errors.required" class="errorLabel">
+                  * Un número de teléfono de la persona que recibe.
+                  </div>
+              </div>
+              <div *ngIf="submitted && fval.direccion.errors" class="invalid-feedback" style="display: flex;">
+                  <div *ngIf="fval.direccion.errors.required" class="errorLabel">
+                  * Dirección donde deseas que llevemos tu pedido.
+                  </div>
+              </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div class="bs-canvas-footer" *ngIf="this._uw.info[0]" [hidden]="_uw.feet!=0"> 
+        <div class="cart-total-dil saving-total " [hidden]="this._uw.currency==this._uw.info[0].bs || !this._uw.paypal && !this._uw.zelle">
+          <h4 >Subtotal $USD</h4>
+          <span>{{_uw.total*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+        <div class="cart-total-dil saving-total " [hidden]="this._uw.currency==this._uw.info[0].bs || !this._uw.paypal ">
+          <h4 >Comisión PayPal</h4>
+          <span>{{(_uw.total*this._uw.comision/100)*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+        <div class="cart-total-dil saving-total " [hidden]="this._uw.currency==this._uw.info[0].bs || !this._uw.zelle ">
+          <h4 >Comisión Zelle</h4>
+          <span>{{(_uw.total*this._uw.comision/100)*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+        <div class="main-total-cart">
+          <h2 [hidden]="this._uw.currency==this._uw.info[0].usd ">Total BsS</h2>
+          <span  [hidden]="this._uw.currency==this._uw.info[0].usd ">{{_uw.total *this._uw.currency | number: '1.2-2'}}</span>
+        </div>
+        <div class="main-total-cart">
+          <h2 [hidden]="this._uw.currency==this._uw.info[0].bs ">Total $USD</h2>
+          <span [hidden]="this._uw.currency==this._uw.info[0].bs ">{{((_uw.total*_uw.comision/100)+_uw.total)*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+        <div class="checkout-cart">
+          <a (click)="procesar()" class="cart-proccess-btn hover-btn" [hidden]="_uw.feet!=0"  style="color: white;" >Procesar compra</a>      
+            <a (click)="to2()" class="cart-checkout-btn hover-btn" style="color: white;" [hidden]="_uw.feet!=3 || !this.data ">Atrás</a>          
+        </div>
+      </div>
+
+      <div class="bs-canvas-footer" *ngIf="this._uw.info[0]" [hidden]="_uw.feet==0 || _uw.feet==3"> 
+         <div class="checkout-cart">
+            <a (click)="atras()" class="cart-checkout-btn hover-btn" style="color: white;" [hidden]="_uw.feet!=1 ">Atrás</a>
+            <a (click)="to1()" class="cart-checkout-btn hover-btn" style="color: white;" [hidden]="_uw.feet!=2 || !this.email ">Atrás</a>
+            <a (click)="to2()" class="cart-checkout-btn hover-btn" style="color: white;" [hidden]="_uw.feet!=3 || !this.data ">Atrás</a>
+           <a (click)="toData()" class="cart-proccess-btn hover-btn" style="color: white; background-color: " [hidden]="_uw.feet!=1">Siguiente</a>
+           <a (click)="toMethod()"  class="cart-proccess-btn hover-btn" style="color: white; background-color: " [hidden]="_uw.feet!=2  ">Siguiente</a>
+            <button class="cart-proccess-btn" type="submit" [hidden]="_uw.feet!=3 || !this.method">Aceptar</button>
+        </div>
+      </div>
+
+      <div class="bs-canvas-footer" *ngIf="this._uw.info[0]" [hidden]="_uw.feet!=3 "> 
+        <div class="cart-total-dil saving-total " [hidden]="this._uw.currency==this._uw.info[0].bs || !this._uw.paypal && !this._uw.zelle">
+          <h4 >Subtotal $USD</h4>
+          <span>{{_uw.total*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+        <div class="cart-total-dil saving-total " [hidden]="this._uw.currency==this._uw.info[0].bs || !this._uw.paypal ">
+          <h4 >Comisión PayPal</h4>
+          <span>{{(_uw.total*this._uw.comision/100)*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+        <div class="cart-total-dil saving-total " [hidden]="this._uw.currency==this._uw.info[0].bs || !this._uw.zelle ">
+          <h4 >Comisión Zelle</h4>
+          <span>{{(_uw.total*this._uw.comision/100)*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+     
+        <div class="main-total-cart">
+          <h2 [hidden]="this._uw.currency==this._uw.info[0].bs ">Total $USD</h2>
+          <span [hidden]="this._uw.currency==this._uw.info[0].bs ">{{((_uw.total*_uw.comision/100)+_uw.total)*this._uw.currency | number: '1.0-2'}}</span>
+        </div>
+          <div class="main-total-cart">
+          <h2 [hidden]="this._uw.currency==this._uw.info[0].usd ">Total BsS</h2>
+          <span  [hidden]="this._uw.currency==this._uw.info[0].usd ">{{_uw.total *this._uw.currency | number: '1.2-2'}}</span>
+        </div>
+
+
+        <div class="checkout-cart">
+            <a (click)="to2()" class="cart-checkout-btn hover-btn" style="color: white;" [hidden]="_uw.feet!=3 || !this.data ">Atrás</a>
+            <button class="cart-proccess-btn" type="submit" [hidden]="_uw.feet!=3 || !this.method">Aceptar</button>
+        </div>
+      </div>
+
+
+
+
+
+    </form>
+  </div>
+  <!-- Cart Sidebar Offsetl End-->
+    <!-- Header Start -->
+  <header class="header clearfix" style="margin-top: -28px;">
+    <div class="top-header-group">
+      <div class="top-header">
+        <div class="res_main_logo">
+          <a routerLink=""><img src="assets/assetssuper/images/logo.png" alt="SavvyLatinos"></a>
+        </div>
+        <div class="main_logo" id="logo">
+          <a ><img src="assets/assetssuper/images/logo.png" alt="SavvyLatinos"></a>
+          <a ><img class="logo-inverse" src="assets/assetssuper/images/logo.png" alt="SavvyLatinos"></a>
+        </div>
+        <div class="catey__icon" style="margin-right: -27px;margin-left: 65px; ">
+          <a href="#" class="cate__btn" data-toggle="modal" data-target="#category_model" title="Categorias" [hidden]="!this._uw.allLoaded">  
+            <img src="assets/assetssuper/images/category/icon-1.svg" [hidden]="this._uw.categorySelected!='hortalizas'" alt="SavvyLatinos" style="width: 30px;">
+             <img src="assets/assetssuper/images/category/icon-2.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='viveres'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-3.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='bebidas'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-11.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='panaderia'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-5.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='postres'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-6.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='limpieza'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-7.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='lacteos'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-8.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='aseopersonal'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-9.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='mascotas'"style="width: 30px;">
+            <img src="assets/assetssuper/images/category/icon-10.svg" alt="SavvyLatinos"[hidden]="this._uw.categorySelected!='carnes'"style="width: 30px;">
+
+          </a>
+        </div>
+
+        <div class="header_right">
+
+          <ul>
+            <li>
+              <a href="#" class="offer-link">+58<i class="uil uil-phone-alt"></i>414-007-0255</a>
+            </li>
+            <li>
+              <a href="#" class="category_drop hover-btn" data-toggle="modal" data-target="#category_model" title="Categories" [hidden]="!this._uw.allLoaded">
+                <img src="assets/assetssuper/images/category/icon-1.svg" alt="SavvyLatinos" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='hortalizas'"style="width: 30px;">
+                 <img src="assets/assetssuper/images/category/icon-2.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='viveres'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-3.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='bebidas'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-11.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='panaderia'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-5.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='postres'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-6.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='limpieza'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-7.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='lacteos'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-8.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='aseopersonal'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-9.svg" alt="SavvyLatinos" [hidden]="this._uw.categorySelected!='mascotas'"style="width: 30px;">
+                <img src="assets/assetssuper/images/category/icon-10.svg" alt="SavvyLatinos"[hidden]="this._uw.categorySelected!='carnes'"style="width: 30px;">
+
+
+
+                <span class="cate__icon">Categorías</span></a>
+            </li>
+            <li>
+  
+            </li>
+             
+            <li style="margin-right:  -27px;" class=" pull-bs-canvas-left">
+              <a href="#" class="option_links" >
+                <i class='uil uil-shopping-cart-alt  ' style="color: #f55d2c;; font-size: 38px;"></i><span class="noti_count1 pull-bs-canvas-left blob" style="background: #059d00;font-size: 14px; z-index:999999999;"  >{{_uw.numProd}}</span>
+              </a>
+
+              
+      
+            </li>  
+          
+            <li class="ui dropdown" *ngIf="this._uw.info[0]">
+              <a class="opts_account"  [hidden]="this._uw.currency==this._uw.info[0].bs" (click)=setBs()>
+                <img src="assets/assetssuper/images/avatar/img-5.jpg" alt="SavvyLatinos" >
+                <span > </span>
+                <i class="uil uil-angle-down"></i>
+              </a>
+
+              
+               <a  class="opts_account"  [hidden]="this._uw.currency==this._uw.info[0].usd " (click)=setUsd()>
+                <img src="assets/assetssuper/images/avatar/img-8.jpg" alt="SavvyLatinos" >
+                <span >  </span>
+                <i class="uil uil-angle-down"></i>
+              </a>
+
+
+
+              <div class="menu dropdown_account">
+                <div class="night_mode_switch__btn">
+                  <a  id="night-mode" class="btn-night-mode">
+                    <i class="uil uil-moon"></i> 
+                    <span class="btn-night-mode-switch">
+                      <span class="uk-switch-button"></span>
+                    </span>
+                  </a>
+                </div>  
+                
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sub-header-group">
+      <div class="sub-header">
+     
+      </div>
+    </div>
+  </header>

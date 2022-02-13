@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add <b> testo</b>  to cart?</h1> 
+<!-- <h1 mat-dialog-title> -->
+<!-- <mat-icon md-48>error_outline</mat-icon> -->
+
+<!-- <b>Sorry</b>, we are doing maintenance work at this time, please try again later   </h1> -->
+<div mat-dialog-content>
+  <mat-form-field>
+    <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date"> -->
+  <!--   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker disabled="false" touchUi ></mat-datepicker> -->
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-list role="list">
+   <!--  <mat-list-item role="listitem"*ngFor="let item of data.product.itemsPrices; let i = index">
+      <p mat-line>
+        {{item.label}} 
+        <mat-divider></mat-divider>
+      </p>
+      <p mat-line>
+        <button mat-icon-button color="primary" (click)="changeRemove(item,i)">
+          <mat-icon aria-label="Example icon-button with a heart icon">remove_circle</mat-icon>
+        </button> 
+      {{quan[i]}}
+        <button mat-icon-button color="primary" (click)="changeAdd(item,i)">
+          <mat-icon aria-label="Example icon-button with a heart icon">add_circle</mat-icon>
+        </button> <b>$ {{item.price}} </b>  /  tix 
+      </p>
+    </mat-list-item> -->
+  </mat-list>
+</div>
+<div mat-dialog-actions>
+<!-- <button mat-button (click)="bookClick()">Book now> -->
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="ok()" cdkFocusInitial>Ok</button>
+</div>

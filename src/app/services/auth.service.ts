@@ -18,10 +18,10 @@ export class AuthService {
 		"Content-Type":"application/json"
 		});
 
-	registerUser( email: string, password: string,statusac :string,userType :string){
+	registerUser( email: string, password: string,status :string,userType :string){
 		const url_api ='https://db.buckapi.com:3070/api/Users';
 		return this.http
-		.post<UserInterface>(url_api,{email,password,statusac,userType},{headers:this.headers})
+		.post<UserInterface>(url_api,{email,password,status,userType},{headers:this.headers})
 		.pipe(map(data => data));
 	}
 

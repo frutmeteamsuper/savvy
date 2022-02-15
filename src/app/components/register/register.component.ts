@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserWService } from "../../services/user-w.service";
 import { TixInterface } from '../../models/tix-interface';
+import { isError } from "util";
 import { DataApiService } from '../../services/data-api.service';
 import { ScrollTopService }  from '../../services/scroll-top.service';
 import { UserInterface } from 'src/app/models/user-interface';
@@ -18,11 +19,17 @@ export class RegisterComponent implements OnInit {
     email:"",
     userType:"",
     password:"",
-    statusac:"",
+    status:"",
   };
    message = "";  
 ngFormSignup: FormGroup;
 submitted = false;
+llc=false;
+copr=false;
+successform=false;
+setted=false;
+actype="undefined";
+text="¿Qué tipo de empresa eres?";
 politics = false;
 public isError = false;
 public waiting = false;
@@ -37,9 +44,7 @@ public msgError = '';
      ) { }
      public cardSubmit : CardInterface ={
       username:"",
-      address:"",
-      statusac:"",
-      surname:"",
+      status:"",
       images:[],
       userd:"",
       phone:""
@@ -56,6 +61,16 @@ public msgError = '';
       node.async = true;
       node.charset = "utf-8";
       document.getElementsByTagName("head")[0].appendChild(node);
+    }
+    setType(p:string){
+      if (p=="llc"){this.actype="llc";this.text="Empresa LLC"};
+      if (p=="corp"){this.actype="corp";this.text="Empresa Corporación"};
+      this.setted=true;
+    }
+    unseted(){
+      this.setted=false;
+      this.actype="undefined";
+      this.text="¿Qué tipo de empresa eres?";
     }
     setPolitics(){
       if (this.politics==true){this.politics=false}else{this.politics=true}
@@ -75,19 +90,19 @@ public msgError = '';
   }
 
   onRegister(){
-    console.log("onRegister");
+   this.submitted=true;
     if (this.ngFormSignup.valid){
       this.isError = false;
       this.waiting=true;
-      this.user.userType='pending';
-      this.user.statusac='new';
+      this.user.userType=this.actype;
+      this.user.status='new';
       this.cardSubmit.username=this.user.email;
       this.cardSubmit.images[0]="https://www.buckapiservices.com/developer.png";
       this.authService
         .registerUser( 
           this.user.email, 
           this.user.password, 
-          this.user.statusac, 
+          this.user.status, 
           this.user.userType)
         .subscribe(
           user => {    
@@ -101,15 +116,16 @@ public msgError = '';
           error => {
                 if(error.status==422){
                 this.isError = true;
+                this.waiting=false;
                 this.message="La dirección de correo ya se encuentra registrada";
               }
           }
         );
-      this.cardSubmit.type='developertest';
-      this.cardSubmit.statusac='new';
+      this.cardSubmit.type=this.actype;
+      this.cardSubmit.status='new';
       setTimeout(() => {
         if (this.isError==false){  
-          console.log("dato" +this.isError);
+      
           this.savecard(this.cardSubmit);
        //   this.isError = false;
           }
@@ -128,8 +144,12 @@ public msgError = '';
     return this.dataApi.saveCard(this.cardSubmit)
        .subscribe(
             cardSubmit => 
+            {
             console.log("cuenta creada")
-            // this.router.navigate(['/successregister'])
+            this.waiting=false
+            this.successform=true
+            this.text="Su registro ha sido exitoso"
+            }// this.router.navigate(['/successregister'])
        );
        this.waiting=false;
 }
@@ -142,6 +162,7 @@ public msgError = '';
   }
    onIsError(): void {
     this.isError = true;
+    this.waiting=false;
     setTimeout(() => {
       this.isError = false;
     }, 4000);

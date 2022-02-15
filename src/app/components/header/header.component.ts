@@ -3,6 +3,7 @@ import { UserWService } from "../../services/user-w.service";
 import { TixInterface } from '../../models/tix-interface';
 import { DataApiService } from '../../services/data-api.service';
 import { ScrollTopService }  from '../../services/scroll-top.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
   private dataApi: DataApiService
      ) { }
      public tixs:TixInterface;
+     public router:Router
 
   ngOnInit() {
   }

@@ -109,11 +109,11 @@
 
     /***Main Header Two ***/
     .main-header-two__bottom {
-        padding: 17px 0px 18px;
+        padding: 1px 0px 5px;
     }
 
     .main-header--two .main-menu .mobile-nav__toggler {
-        color: #fff;
+        color: #2800dd;
     }
 
 }

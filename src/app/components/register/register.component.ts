@@ -5,11 +5,11 @@ import { DataApiService } from '../../services/data-api.service';
 import { ScrollTopService }  from '../../services/scroll-top.service';
 
 @Component({
-  selector: 'app-testapp',
-  templateUrl: './testapp.component.html',
-  styleUrls: ['./testapp.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class TestappComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(
   public scrollTopService:ScrollTopService,

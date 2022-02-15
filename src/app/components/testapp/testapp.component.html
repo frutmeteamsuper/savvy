@@ -25,7 +25,7 @@
                 
                 
                 <div class="image-layer"
-                    style="background-image: url(assets/images/backgrounds/main-slider-v1-1.jpg);"></div>
+                    style="background-image: url(assets/assetssavvy/images/backgrounds/main-slider-v1-1.jpg);"></div>
 
                 <!-- /.image-layer -->
                 <div class="container">
@@ -42,7 +42,13 @@
                         </div>
                         <h2 class="main-slider__content-title">Diponibles para <br>
                             </h2>
-                            <h1 style="color: #2800DD;"><span class="auto-input" style="color: #EA0086;"></span></h1>
+                            <h1 style="color: #2800DD;">
+                                <span style="color: #EA0086;">
+                                    <ngx-typed-js [strings]="['Venezuela', 'Colombia','España']" [loop]="true" [typeSpeed]="90">
+                                        <h1 class="typing"></h1>
+                                      </ngx-typed-js>
+                                </span>
+                            </h1>
                         <p class="main-slider__content-text">Tramitamos todos los documentos que necesitas</p>
                         <div class="main-slider__content-btn">
                             <a href="index.html#" class="thm-btn">Contactanos</a>
@@ -385,11 +391,3 @@
     </div>
     <!--End Footer One Bottom-->
 </footer>
-<script>
-    var typed = new Typed(".auto-input", {
-        strings: ["Venezuela", "Colombia", "España"],
-        typeSpeed: 100,
-        backSpeed: 100,
-        loop: true
-    })
-</script>

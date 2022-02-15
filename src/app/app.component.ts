@@ -5,7 +5,7 @@ import { DataApiService } from "./services/data-api.service";
 import { ProductInfoService } from "./services/product-info.service";
 import { UserWService } from "./services/user-w.service";
 import { SwUpdate } from '@angular/service-worker';
-// declare var $: any;
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,12 +22,12 @@ export class AppComponent implements OnInit {
 
  }
  loadAPI = null;  
-   url = "assets/assetsfruit/js/scripts.js";
+   url = "assets/assetssavvy/js/latinos.js";
     ngOnInit() {
 
       if (this.swUpdate.isEnabled) {
             this.swUpdate.available.subscribe(() => {
-                if(confirm("Frutme Super tiene nuevas mejoras. desea cargar esta nueva versión?")) {
+                if(confirm("Savvy Latinos tiene nuevas mejoras. desea cargar esta nueva versión?")) {
                     window.location.reload();
                 }
             });
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
           });
         }
         this._uw.loaded=true;
+        
   }
  public loadScript() {
       let node = document.createElement("script");

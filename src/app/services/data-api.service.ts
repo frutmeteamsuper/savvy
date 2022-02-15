@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
 import { TixInterface } from '../models/tix-interface';
 import { SaleInterface } from '../models/sale-interface';
 import { OrderInterface } from '../models/order-interface';
+import { CardInterface } from '../models/card-interface';
 import { InfoInterface } from '../models/info-interface';
 import { UserWService } from "./user-w.service";
 
@@ -13,6 +14,8 @@ import { UserWService } from "./user-w.service";
   providedIn: 'root'
 })
 export class DataApiService {
+	card: Observable<any>;
+	cards: Observable<any>;
 	info: Observable<any>;
 	tixs: Observable<any>;
 	tix: Observable<any>;
@@ -56,6 +59,12 @@ export class DataApiService {
 		const url_api=`https://db.buckapi.com:3070/api/infos/`;
 		this.info = this.http.get(url_api);
 		return (this.info);
+	}
+	saveCard(card :CardInterface){
+		const url_api='https://db.buckapi.com:3070/api/card';
+		return this.http
+		.post<CardInterface>(url_api, card)
+		.pipe(map(data => data));
 	}
 	saveSale(sale :SaleInterface){
 		const url_api='https://db.buckapi.com:3070/api/sale';

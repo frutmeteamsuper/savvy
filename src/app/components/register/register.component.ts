@@ -3,19 +3,47 @@ import { UserWService } from "../../services/user-w.service";
 import { TixInterface } from '../../models/tix-interface';
 import { DataApiService } from '../../services/data-api.service';
 import { ScrollTopService }  from '../../services/scroll-top.service';
-
+import { UserInterface } from 'src/app/models/user-interface';
+import { CardInterface} from'src/app/models/card-interface';
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  public user : UserInterface ={
+    email:"",
+    userType:"",
+    password:"",
+    statusac:"",
+  };
+   message = "";  
+ngFormSignup: FormGroup;
+submitted = false;
+politics = false;
+public isError = false;
+public waiting = false;
+public msgError = '';
   constructor(
+   private formBuilder: FormBuilder,
   public scrollTopService:ScrollTopService,
   public _uw:UserWService,
+  private authService: AuthService,
+  public router:Router,
   private dataApi: DataApiService
      ) { }
+     public cardSubmit : CardInterface ={
+      username:"",
+      address:"",
+      statusac:"",
+      surname:"",
+      images:[],
+      userd:"",
+      phone:""
+    }; 
      loadAPI = null;  
 
   url = "assets/assetssavvy/js/latinos.js";
@@ -29,7 +57,9 @@ export class RegisterComponent implements OnInit {
       node.charset = "utf-8";
       document.getElementsByTagName("head")[0].appendChild(node);
     }
-  
+    setPolitics(){
+      if (this.politics==true){this.politics=false}else{this.politics=true}
+    }
   ngOnInit() {
     if (this._uw.loaded==true){
       this.loadAPI = new Promise(resolve => {
@@ -38,5 +68,82 @@ export class RegisterComponent implements OnInit {
         });
       }
     this._uw.loaded=true;
+    this.ngFormSignup = this.formBuilder.group({
+      email: ['', [Validators.required,Validators.email]],
+      password: ['', [Validators.required,Validators.minLength(6)]]
+    });
+  }
+
+  onRegister(){
+    console.log("onRegister");
+    if (this.ngFormSignup.valid){
+      this.isError = false;
+      this.waiting=true;
+      this.user.userType='pending';
+      this.user.statusac='new';
+      this.cardSubmit.username=this.user.email;
+      this.cardSubmit.images[0]="https://www.buckapiservices.com/developer.png";
+      this.authService
+        .registerUser( 
+          this.user.email, 
+          this.user.password, 
+          this.user.statusac, 
+          this.user.userType)
+        .subscribe(
+          user => {    
+            this._uw.card=user;
+          this.authService.setUser(user);
+          const token = user.id;
+          this.cardSubmit.userd='p'+token;
+          this._uw.userd=this.cardSubmit.userd;  
+          this.authService.setToken(token);
+          }, 
+          error => {
+                if(error.status==422){
+                this.isError = true;
+                this.message="La dirección de correo ya se encuentra registrada";
+              }
+          }
+        );
+      this.cardSubmit.type='developertest';
+      this.cardSubmit.statusac='new';
+      setTimeout(() => {
+        if (this.isError==false){  
+          console.log("dato" +this.isError);
+          this.savecard(this.cardSubmit);
+       //   this.isError = false;
+          }
+        else{
+          this.waiting=false;
+        } 
+      }, 5000);
+
+    } 
+    else {
+      this.onIsError();
+    }
+  }
+
+  public savecard(card:CardInterface){
+    return this.dataApi.saveCard(this.cardSubmit)
+       .subscribe(
+            cardSubmit => 
+            console.log("cuenta creada")
+            // this.router.navigate(['/successregister'])
+       );
+       this.waiting=false;
+}
+
+
+
+
+  get fval() {
+  return this.ngFormSignup.controls;
+  }
+   onIsError(): void {
+    this.isError = true;
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
   }
 }

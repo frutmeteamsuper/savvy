@@ -49,7 +49,7 @@
                                       </ngx-typed-js>
                                 </span>
                             </h1>
-                        <p class="main-slider__content-text">Tramitamos todos los documentos que necesitas</p>
+                        <p class="main-slider__content-text">Trámitamos todos los documentos que necesitas</p>
                         <div class="main-slider__content-btn">
                             <a href="index.html#" class="thm-btn">Contactanos</a>
                         </div>
@@ -70,14 +70,14 @@
 <section class="why-choose-one">
     <div class="container">
         <div class="row">
-            
+           
             <div class="col-xl-6 col-lg-6">
                 <div class="video-one__box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms"
                     style="background-image: url(assets/assetssavvy/images/video.jpg)">
-                    <div class="video-one__box-title">
+                    <!-- <div class="video-one__box-title">
                         <h2>Savvylatinos</h2>
-                    </div>
-                     
+                    </div> -->
+                    
                     <div class="icon wow zoomIn" data-wow-delay="300ms" data-wow-duration="1500ms">
                         <a class="video-popup" title="latinos Video Gallery"
                             href="assets/assetssavvy/images/savvylatinos.mp4">
@@ -96,9 +96,6 @@
                     <div class="section-title">
                         <span class="section-title__tagline">Creación de empresas LLC y CORP</span>
                         <h2 class="section-title__title">Creamos su empresa en <br>USA</h2>
-                        <a class="login-link" data-toggle="modal" data-target="#form-ajax-login-popup">
-                            <span class="sign-in-text">Sign in</span>
-                            </a>
                     </div>
                     <p class="why-choose-one__left-text">Tramites y domumentación para la conformación de empresas </p>
                     <div class="why-choose-one__left-learning-box">
@@ -169,89 +166,20 @@
         </div>
         <div class="row">
             <!--Start Single Features One-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms" *ngFor="let service of info[0].services">
                 <div class="features-one__single">
                     <div class="features-one__single-icon">
-                        <span class="icon-empowerment"></span>
+                        <span class="{{service.icon}}"></span>
                     </div>
                     <div class="features-one__single-text">
-                        <h4><a href="index.html#">Apertura de empresa LLC o C-Corp</a></h4>
-                        <p>with unlimited courses</p>
+                        <h4><a >{{service.Title}}</a></h4>
+                     
                     </div>
                 </div>
             </div>
             <!--End Single Features One-->
 
-            <!--Start Single Features One-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <div class="features-one__single">
-                    <div class="features-one__single-icon">
-                        <span class="icon-human-resources-1"></span>
-                    </div>
-                    <div class="features-one__single-text">
-                        <h4><a href="index.html#">EIN (identificación fiscal)</a></h4>
-                        <p>best & highly qualified</p>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Features One-->
-
-            <!--Start Single Features One-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
-                <div class="features-one__single">
-                    <div class="features-one__single-icon">
-                        <span class="icon-target"></span>
-                    </div>
-                    <div class="features-one__single-text">
-                        <h4><a href="init.html">ITIN (Número de Identificación Personal del Contribuyente)</a></h4>
-                        <p>value all over the world</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
-                <div class="features-one__single">
-                    <div class="features-one__single-icon">
-                        <span class="icon-teacher"></span>
-                    </div>
-                    <div class="features-one__single-text">
-                        <h4><a href="index.html#">Agente registrado</a></h4>
-                        <p>value all over the world</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
-                <div class="features-one__single">
-                    <div class="features-one__single-icon">
-                        <span class="icon-recruitment"></span>
-                    </div>
-                    <div class="features-one__single-text">
-                        <h4><a href="index.html#">TAX (impuestos)</a></h4>
-                        <p>value all over the world</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
-                <div class="features-one__single">
-                    <div class="features-one__single-icon">
-                        <span class="icon-relationship"></span>
-                    </div>
-                    <div class="features-one__single-text">
-                        <h4><a href="index.html#">DUNS</a></h4>
-                        <p>value all over the world</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
-                <div class="features-one__single">
-                    <div class="features-one__single-icon">
-                        <span class="icon-confirmation"></span>
-                    </div>
-                    <div class="features-one__single-text">
-                        <h4><a href="index.html#">FDA</a></h4>
-                        <p>value all over the world</p>
-                    </div>
-                </div>
-            </div>
+      
             <!--End Single Features One-->
         </div>
     </div>
@@ -320,7 +248,7 @@
 
 <!--Start Footer One-->
 <footer class="footer-one">
-   <!--  <div class="footer-one__bg" style="background-image: url(assets/images/backgrounds/footer-v1-bg.jpg);">
+   <!--  <div class="footer-one__bg" style="background-image: url(assets/assetssavvy/images/backgrounds/footer-v1-bg.jpg);">
     </div> --><!-- /.footer-one__bg -->
     <div class="footer-one__top">
         <div class="container">

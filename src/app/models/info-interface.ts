@@ -9,4 +9,5 @@ export interface InfoInterface {
 	zelleaddress?:string;
 	bitcoin?:number;
 	paypal?:number;
+	services?:Array<any>;
 }

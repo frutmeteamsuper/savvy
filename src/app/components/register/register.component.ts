@@ -9,6 +9,7 @@ import { CardInterface} from'src/app/models/card-interface';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -35,6 +36,7 @@ public isError = false;
 public waiting = false;
 public msgError = '';
   constructor(
+    public toastr: ToastrService,
    private formBuilder: FormBuilder,
   public scrollTopService:ScrollTopService,
   public _uw:UserWService,
@@ -139,6 +141,14 @@ public msgError = '';
       this.onIsError();
     }
   }
+  showSuccess() {
+    this.toastr.success('Su registro ha sido exitoso!', 'OK' , {
+      progressBar:true,
+      progressAnimation:'increasing',
+
+      timeOut: 5000
+  })
+             }
 
   public savecard(card:CardInterface){
     return this.dataApi.saveCard(this.cardSubmit)
@@ -148,6 +158,7 @@ public msgError = '';
             console.log("cuenta creada")
             this.waiting=false
             this.successform=true
+            this.showSuccess()
             this.text="Su registro ha sido exitoso"
             }// this.router.navigate(['/successregister'])
        );

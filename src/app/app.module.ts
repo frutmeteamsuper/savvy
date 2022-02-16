@@ -44,7 +44,7 @@ import { TestappComponent } from './components/testapp/testapp.component';
 import { HeaderComponent } from './components/header/header.component';
 import { Component, Inject} from '@angular/core';
 import { RegisterComponent } from './components/index.paginas';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +53,7 @@ import { RegisterComponent } from './components/index.paginas';
     RegisterComponent
     ],
   imports: [
+   
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
@@ -71,6 +72,7 @@ import { RegisterComponent } from './components/index.paginas';
     CarouselModule,
     FilePickerModule,
     MatRadioModule,
+    ToastrModule.forRoot(), 
   ],
   exports: [
     MatButtonModule, MatCheckboxModule, MatTabsModule,MatDialogModule,MatIconModule,MatInputModule,

@@ -49,7 +49,11 @@ export class DataApiService {
 		const url_api = 'https://db.buckapi.com:3070/api/tixes?filter[where][initload]=activated';
 		return (this.tixs = this.http.get(url_api));
 	}
- 	
+	getCards(id:string){
+		let indice = id;
+		const url_api = "https://db.buckapi.com:3070/api/card?filter[where][userd]=p"+indice;
+		return this.http.get(url_api);
+	}
 
 	getAllTixsInitload(){
 		const url_api = 'https://db.buckapi.com:3070/api/tixes?filter[where][initload]=activated';
@@ -91,6 +95,10 @@ sendMailNewBookAppToAdmin(book){
 		return this.http
 		.put<OrderInterface>(url_api, order)
 		.pipe(map(data => data));
+	}
+	getCardByUserd(userd: string){
+		const url_api = `https://db.buckapi.com:3070/api/card?filter[where][userd]=${userd}`;
+		return this.http.get(url_api);
 	}
 	getOrderByNpedido(npedido: string){
 		const url_api = `https://db.buckapi.com:3070/api/order?filter[where][npedido]=${npedido}`;

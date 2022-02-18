@@ -13,6 +13,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 //SERVICES
 import {TixsService} from './services/tixs.service';
+import {AuthService} from './services/auth.service';
 import {ProductInfoService} from './services/product-info.service';
 import {CarService} from './services/car.service';
 import {DataApiService} from './services/data-api.service';
@@ -45,12 +46,20 @@ import { HeaderComponent } from './components/header/header.component';
 import { Component, Inject} from '@angular/core';
 import { RegisterComponent } from './components/index.paginas';
 import { ToastrModule } from 'ngx-toastr';
+import { MyquotesComponent } from './components/myquotes/myquotes.component';
+import { AccountComponent } from './components/account/account.component';
+import { LoginComponent } from './components/login/login.component';
+import { SLlcComponent } from './components/s-llc/s-llc.component';
 @NgModule({
   declarations: [
     AppComponent,
     TestappComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyquotesComponent,
+    AccountComponent,
+    LoginComponent,
+    SLlcComponent
     ],
   imports: [
    
@@ -86,6 +95,7 @@ import { ToastrModule } from 'ngx-toastr';
   entryComponents:[ ],
   providers: [
     TixsService,
+    AuthService,
     DataApiService,
     ScrollTopService,
     UserWService,

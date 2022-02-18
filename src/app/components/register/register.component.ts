@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserWService } from "../../services/user-w.service";
+import { InfoInterface } from 'src/app/models/info-interface';
+
 import { TixInterface } from '../../models/tix-interface';
 import { isError } from "util";
 import { DataApiService } from '../../services/data-api.service';
@@ -22,6 +24,8 @@ export class RegisterComponent implements OnInit {
     password:"",
     status:"",
   };
+  services:any={};
+  public info:InfoInterface;
    message = "";  
 ngFormSignup: FormGroup;
 submitted = false;
@@ -30,7 +34,7 @@ copr=false;
 successform=false;
 setted=false;
 actype="undefined";
-text="¿Qué tipo de empresa eres?";
+text="¿Qué tipo de empresa deseas registrar?";
 politics = false;
 public isError = false;
 public waiting = false;
@@ -48,6 +52,7 @@ public msgError = '';
       username:"",
       status:"",
       images:[],
+      services:[],
       userd:"",
       phone:""
     }; 
@@ -64,9 +69,26 @@ public msgError = '';
       node.charset = "utf-8";
       document.getElementsByTagName("head")[0].appendChild(node);
     }
+    setServices(p:string){
+      let servicesSize=this.info[0].services.length;
+      this.cardSubmit.services=[];
+      for (let i=0;i <servicesSize;i++){
+        if(this.actype==this.info[0].services[i].userType){
+          this.cardSubmit.services.push(this.info[0].services[i])
+        }
+      }
+    }
     setType(p:string){
-      if (p=="llc"){this.actype="llc";this.text="Empresa LLC"};
-      if (p=="corp"){this.actype="corp";this.text="Empresa Corporación"};
+      if (p=="llc"){
+        this.actype="llc";
+        this.text="Empresa LLC"
+        this.setServices(p);
+      };
+      if (p=="corp"){
+        this.actype="corp";
+        this.text="Empresa Corporación"
+        this.setServices(p);
+      };
       this.setted=true;
     }
     unseted(){
@@ -77,7 +99,13 @@ public msgError = '';
     setPolitics(){
       if (this.politics==true){this.politics=false}else{this.politics=true}
     }
+    public getInfo(){
+  this.dataApi.getInfo()
+  .subscribe((info: InfoInterface) => (this.info=info));
+  console.log(this.info);
+}
   ngOnInit() {
+    this.getInfo();
     if (this._uw.loaded==true){
       this.loadAPI = new Promise(resolve => {
         this.loadScript();
@@ -159,7 +187,8 @@ public msgError = '';
             this.waiting=false
             this.successform=true
             this.showSuccess()
-            this.text="Su registro ha sido exitoso"
+            this.text=""
+            this.router.navigate(['/account'])
             }// this.router.navigate(['/successregister'])
        );
        this.waiting=false;

@@ -14,4 +14,5 @@ export interface CardInterface{
 	city?:string;
 	status?:string;
 	images?:Array<string>;
+	services?:Array<any>;
 }

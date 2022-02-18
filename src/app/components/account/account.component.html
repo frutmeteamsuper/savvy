@@ -1,0 +1,39 @@
+<section class="features-one">
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline">Que ofrecemos?</span>
+            <h2 class="section-title__title">Servicios digitales</h2>
+        </div>
+        <div class="row" *ngIf="_uw.card!=undefined">
+            <!--Start Single Features One-->
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms" >
+                <div class="features-one__single">
+                    <div class="features-one__single-icon">
+                        <span class="{{info[0].services[0].icon}}"></span>
+                    </div>
+                    <div class="features-one__single-text">
+                        <h4  [hidden]="user.userType!='corp'"><a >Apertura de empresa  C-Corp</a></h4>
+                        <h4  [hidden]="user.userType!='llc'"><a >Apertura de empresa  LLC</a></h4>
+                     
+                    </div>
+                </div>
+            </div>
+            <div  *ngFor="let service of _uw.card.services" class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms" >
+                <div class="features-one__single">
+                    <div class="features-one__single-icon">
+                        <span class="{{service.icon}}"></span>
+                    </div>
+                    <div class="features-one__single-text">
+                        <h4 ><a >{{service.Title}}</a></h4>
+                     
+                    </div>
+                </div>
+            </div>
+   
+            <!--End Single Features One-->
+
+      
+            <!--End Single Features One-->
+        </div>
+    </div>
+</section>

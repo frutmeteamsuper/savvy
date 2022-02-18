@@ -1,0 +1,161 @@
+<section class="contact-page" style="padding: 150px 0px 90px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-3">
+                <div class="contact-page__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline">Crear empresa</span>
+                        <h2 class="section-title__title">Registre<br> su LLC.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9">
+                <div class="section-title">
+                        
+                        <h2 class="section-title__title"[hidden]="steep!=0">Sobre su empresa LLC</h2>
+                        <h2 class="section-title__title"[hidden]="steep!=1">Encargados de la empresa
+                            Socios</h2>
+                        <h2 class="section-title__title"[hidden]="steep!=2">Persona responsable</h2>
+                        <!-- <h2 class="section-title__title" [hidden]="steep!=3">Persona responsable </h2> -->
+                    <p [hidden]="steep!=2">Esta es la persona responsable que se muestra en el número de identificación fiscal, cuenta bancaria y otros documentos.</p>
+                 </div>
+                <div class="contact-page__right">
+                    <form [hidden]="steep!=0" action="" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="comment-form__input-box">
+                                    <p>Nombre de la empresa</p>
+                                    <input type="text" placeholder="Nombre de la empresa" name="name">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <p>Tipo de empresa</p>
+                                    <input type="email" placeholder="LLC" name="email">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <p>Industria</p>
+                                    <input type="text" placeholder="Agronomia" name="phone">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="comment-form__input-box">
+                                    <textarea name="message" placeholder="Descripcion de la empresa"></textarea>
+                                </div>
+                                <div style="text-align: right; ">
+                                    <!-- <button  class="thm-btn comment-form__btn" (click)="back(steep)"> Atras</button> -->
+                                    <button  class="thm-btn comment-form__btn"(click)="next(steep)"><a >Siguiente</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="" [hidden]="steep!=1" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="comment-form__input-box">
+                                    <p>Nombre completo</p>
+                                    <input type="text" placeholder="Nombre y apellido  " name="name">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12">
+                                
+                                <div class="comment-form__input-box">
+                                    <p>Dirección</p>
+                                    <input type="text"  placeholder="*Direccion" name="text">
+                                </div>                                
+                            </div>
+                            <!-- <div class="col-xl-2 col-lg-2">
+                                
+                                <div class="comment-form__input-box">
+                                <input type="checkbox" name="">Utilizar la nuestra.
+                                </div>   
+                            </div> -->
+                            <div class="col-xl-12 col-lg-12">
+                                    <div class="comment-form__input-box">
+                                        <p>Dirección física de la empresa</p>
+                                        <input type="text"  placeholder="*Direccion" name="text">
+                                    </div> 
+                                </div> 
+                                <!-- <div class="col-xl-2 col-lg-2">
+                                
+                                    <div class="comment-form__input-box">
+                                    <input type="checkbox" name=""> Utilizar la nuestra.
+                                    </div>   
+                                </div> -->
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="comment-form__input-box">
+                                        <p>Dirección recepción de documento de su empresa    <input type="checkbox" name=""> Utilizar la nuestra.</p>
+                                        <input type="text"  placeholder="*Direccion" name="text">
+                                    </div> 
+                                </div>
+                                <!-- <div class="col-xl-2 col-lg-2">
+                                
+                                     <input type="checkbox" name="">Utilice la nuestra.  
+                                </div> -->
+                            
+                           
+                            <div class="col-xl-12 col-lg-12">
+                                
+                                <div class="comment-form__input-box" style="color: #2800DD;">
+                                   <i class="fa fa-plus"></i> <a style="color: #2800DD;" >Añadir más socios</a>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12" style="padding-top: 10px;">
+                                    <div style="text-align: right; ">
+                                    <button  class="thm-btn comment-form__btn" (click)="back(steep)"> Atras</button>
+                                    <button  class="thm-btn comment-form__btn"  (click)="next(steep)"><a>Siguiente</a></button>  </div>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="" [hidden]="steep!=2" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <p>Nombre completo</p>
+                                    <input type="text" placeholder="Nombre y apellido  " name="name">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                
+                                <div class="comment-form__input-box">
+                                    <p>Email</p>
+                                    <input type="email"  placeholder="*Email" name="text">
+                                </div>                                
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                    <div class="comment-form__input-box">
+                                        <p>Telefono</p>
+                                        <input type="text"  placeholder="*Telefono" name="text">
+                                    </div> 
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="comment-form__input-box">
+                               <p>¿Cuenta con ITIN?</p>
+                               <input type="checkbox" name="">Si
+                               <input type="checkbox" name="">No
+                            </div>
+                        </div>
+                            
+    
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12" style="padding-top: 10px;">
+                                
+                                <button  class="thm-btn comment-form__btn" (click)="back(steep)"> Atras</button>
+                                <!-- <button  class="thm-btn comment-form__btn"><a (click)="next(steep)">Siguiente</a></button>   </div> -->
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
